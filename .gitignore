@@ -1,0 +1,31 @@
+# Next.js / Node
+node_modules/
+.next/
+out/
+build/
+.vercel
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+
+# Secrets (CRITICAL)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example
+
+# Database
+# Local data for Mongo stays on your machine, not the repo
+mongo_data/
+
+# Python / AI (For the ai-logic folder)
+__pycache__/
+venv/
+.venv/
+*.py[cod]
+
+# OS Files
+.DS_Store
+Thumbs.db
