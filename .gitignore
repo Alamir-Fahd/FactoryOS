@@ -14,7 +14,7 @@ yarn-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
-.env.example
+# REMOVED .env.example from here so the team can see the template!
 
 # Database
 # Local data for Mongo stays on your machine, not the repo
