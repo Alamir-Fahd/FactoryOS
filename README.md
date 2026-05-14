@@ -16,7 +16,8 @@ Follow these steps to get your local environment running in under 5 minutes:
 •	Open .env and add the DeepSeek API Key.
 
 3. **Ignition (Docker):**
-docker-compose up --build
+   ```bash
+   docker-compose up --build
 
 5. **Verify Systems:**
 •	Frontend: http://localhost:3000
