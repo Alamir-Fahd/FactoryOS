@@ -3,10 +3,11 @@ node_modules/
 .next/
 out/
 build/
-.vercel
+dist/
 *.tsbuildinfo
 npm-debug.log*
 yarn-debug.log*
+*.log
 
 # Secrets (CRITICAL)
 .env
@@ -14,18 +15,15 @@ yarn-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
-# REMOVED .env.example from here so the team can see the template!
+# .env.example is EXCLUDED from here so the team can see the template
 
-# Database
-# Local data for Mongo stays on your machine, not the repo
+# Database & Local Data
 mongo_data/
+ai-logic/data/
+ai-logic/models/
 
-# Python / AI (For the ai-logic folder)
-__pycache__/
-venv/
-.venv/
-*.py[cod]
-
-# OS Files
+# Editor & OS Files
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
