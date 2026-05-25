@@ -1,26 +1,40 @@
 import os
-import requests
+from pathlib import Path
+from typing import Any
+
 from dotenv import load_dotenv
 
-# Load the fuel from the root .env file
-load_dotenv(dotenv_path="../.env")
+# Load the root .env when running locally outside Docker.
+load_dotenv(dotenv_path=Path(__file__).resolve().parents[1] / ".env")
 
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
 BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
 
-def generate_revenue_forecast(factory_data):
+
+def generate_revenue_forecast(factory_data: dict[str, Any] | None = None) -> dict[str, Any]:
     """
-    This is where the AI Specialist will write the logic 
-    to talk to DeepSeek.
+    Return a placeholder forecast payload until the model integration is added.
     """
+    payload = factory_data or {}
+
     if not API_KEY:
-        return "❌ Error: DeepSeek API Key not found."
-    
-    print(f"🧠 Analyzing factory data for revenue trends...")
-    # Placeholder for the actual DeepSeek API call
-    return "Forecast Engine: Online. Ready for data input."
+        return {
+            "status": "warning",
+            "message": "DeepSeek API key not found. Returning placeholder forecast data.",
+            "forecast": "Forecast Engine: Offline until DEEPSEEK_API_KEY is configured.",
+            "input": payload,
+        }
+
+    print("Analyzing factory data for revenue trends...")
+    return {
+        "status": "online",
+        "message": "FastAPI forecast endpoint is ready for data input.",
+        "forecast": "Forecast Engine: Online. DeepSeek integration placeholder response.",
+        "provider_base_url": BASE_URL,
+        "input": payload,
+    }
+
 
 if __name__ == "__main__":
     print("--- FactoryOS AI Logic Module ---")
-    status = generate_revenue_forecast(None)
-    print(status)
+    print(generate_revenue_forecast())
