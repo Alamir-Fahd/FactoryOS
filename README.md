@@ -1,42 +1,43 @@
-# FactoryOS 🏭
+# FactoryOS
 
-Welcome to the FactoryOS core repository. This system is designed to manage factory production lines and many more.
+FactoryOS is a factory operations starter built with Next.js, MongoDB, and a FastAPI service for AI and forecasting workflows.
 
----
-## 🚀 Quick Start (For Team Members)
-Follow these steps to get your local environment running in under 5 minutes:
+## Quick Start
 
-1. **Clone the Repository:**
-   ```bash
-   git clone <your-repo-url>
-   cd FactoryOS
+1. Clone the repository.
+2. Copy `.env.example` to `.env`.
+3. Add your `DEEPSEEK_API_KEY` to `.env`.
+4. Run `docker-compose up --build`.
 
-2.	**Set Up Your Environment:**
-•	Copy the template: cp .env.example .env
-•	Open .env and add the DeepSeek API Key.
+## Services
 
-3. **Ignition (Docker):**
-   ```bash
-   docker-compose up --build
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- MongoDB GUI: [http://localhost:8081](http://localhost:8081)
+- Database check: [http://localhost:3000/api/test-db](http://localhost:3000/api/test-db)
+- FastAPI health: [http://localhost:8000/health](http://localhost:8000/health)
+- FastAPI docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Next.js forecast proxy: `POST http://localhost:3000/api/forecast`
 
-5. **Verify Systems:**
-•	Frontend: http://localhost:3000
-•	Database GUI: http://localhost:8081 (Admin/innovera123)
-•	API Handshake: http://localhost:3000/api/test-db (Must show "Online").
+## Example Forecast Request
 
-🛠 **Tech Stack**
-•	Framework: Next.js 14 (App Router)
-•	Database: MongoDB (Containerized)
-•	AI Brain: DeepSeek API
-•	Infrastructure: Docker & Docker Compose
+```json
+{
+  "factory_data": {
+    "line": "A1",
+    "monthlyRevenue": 125000,
+    "utilizationRate": 0.84
+  }
+}
+```
 
-📂 **Project Structure**
-•	/web: Full-stack Next.js application.
-•	/infra: Dockerfiles and server configurations.
-•	/ai-logic: Python sandbox for revenue forecasting.
-•	/web/lib: Core utilities (e.g., mongodb.ts).
+## Project Structure
 
-⚖️ **Contribution Rules**
-	1.	Branching: Never push to main. Use feat/your-feature-name.
-	2.	Pull Requests: All code must be merged via PR and approved.
-	3.	Secrets: Never commit your .env. It is strictly protected by .gitignore.
+- `/web`: Next.js application and API proxy routes.
+- `/ai-logic`: FastAPI app and Python forecasting logic.
+- `/infra`: Dockerfiles and infrastructure configuration.
+
+## Contribution Rules
+
+1. Never push directly to `main`.
+2. Open a pull request for all code changes.
+3. Never commit `.env` or secret keys.
