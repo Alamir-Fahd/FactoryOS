@@ -40,8 +40,8 @@ export default function HomePage() {
           FastAPI is now wired into the project.
         </h1>
         <p style={{ margin: 0, fontSize: '18px', lineHeight: 1.6, color: '#30445f' }}>
-          Use the Next.js proxy route at <code>/api/forecast</code> to reach the new Python service,
-          or open <code>http://localhost:8000/docs</code> to use the FastAPI Swagger UI directly.
+          Use the Next.js proxy route at <code>/api/forecast</code> to reach the AI service. 
+          To view the interactive Swagger UI, navigate to the <code>/docs</code> endpoint on your backend port.
         </p>
         <pre
           style={{
